@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<title>Radek &amp; Basecamp = 💜?</title>
+	<meta name="description" content="My application for support programer role at Basecamp." />
+	<meta name="robots" content="noindex" />
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="index.html">Intro</a></li>
+			<li><a href="xss.html">XSS Report</a></li>
+			<li><a href="images.html">Images Issue</a></li>
+		</ul>
+	</nav>
+	<header>
+		<h1>#2 - Issue: some images aren’t loading</h1>
+		<blockquote><p>Please describe what steps you would take to diagnose a report that some images aren’t loading in a customer’s Basecamp account.</p></blockquote>
+	</header>
+	<hr>
+	<section>
+		<h2>My thoughts</h2>
+		<p>
+			  I guess that first I would be trying to find out whether it’s broad issue or individual one. This is how I would be trying to analyze the issue and which root cause I would be suspecting in each case:   
+		</p>
+		<ol>
+			<li>
+				<p>In case I would notice that <strong>several clients are experiencing similar issue</strong> lately, then:</p>
+				<ul>
+					<li>I would be trying to nail down the similar symptoms that should lead me to the point where it begun.</li>
+					<li>Also trying to replicate it in my own account and estimate how many customers might be affected.</li>
+					<li>Highly likely I assume that these things might have happened:
+						<ul>
+							<li>Something wen’t wrong in the app, e.g. after recent update. I would look at the change-log, see what could cause it. If I would be sure I found the reason, I would try to revert this update first (in case I truly believe there is nothing else that the revert could break) and in any case contact the author.</li>
+							<li>Or it can be also issue specific to some internet provider, DNS or CDN (in all or just some locations).</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<p><strong>If it’s individual issue</strong>, I would be looking at WHERE this issue occurred and HOW exactly it behaved. I would be drilling down to find the root cause. Brief example of what I would be looking at:				</p>
+				<ol>
+					<li>
+						<strong>WHERE it happened:</strong>
+						<ul>
+							<li>  In just 1 browser on 1 PC.   I would recommend: 1. clearing cache and cookies / browsing history. 2. trying to load Basecamp in private browsing mode 3. turning off all extensions and 4. making sure that both JS (there would be notification in basecamp, I know, but still) and Image loading is turned on.</li>
+							<li>  In multiple browsers on 1 PC or On multiple devices.   I would try to ping CDN url, try to check Internet connection / DNS settings. Dig in Firewall settings, if there is any.</li>
+						</ul>
+					</li>
+					<li>
+						<strong>WHAT exactly was not loading:</strong>
+						<ul>
+							<li>  All images.   Chances that it will be resolved by the tips above are pretty high.</li>
+							<li>  All images and CSS/JS files as well.   I would check availability of the AKAMAI CDN from this location. I would check DNS settings and internet connection. And Firewall as well.</li>
+							<li>  Specific images.   E.g. some thumbnails, then I would search for in-app bug, for example when generating thumbnail from an image. I would try to reproduce it by trying to generate thumbnail for the same file.
+							</li>
+						</ul>
+					</li>
+				</ol>
+			</li>
+		</ol>
+		<p>
+			  
+			There is a chance it could be something else then what I suspect. But still, it’s more an example of discovery process. More I try and more information I have should help me to know where to be looking at.
+			If it’s not going to lead me to the root cause I suspected, then still it’s going to help me find it as I it should lead me in the direction where I should be looking for. <br>
+			Here is also a draft of communication how I would proceed with a specific request.
+			  
+		</p>
+	</section>
+	<hr>
+	<section>
+		<h2>Example communication</h2>
+		<ol class="chat">
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>5 hours ago from: <strong>John Doe</strong> to: <strong>Basecamp Support</strong><br>
+						Subject: <strong>Please help&hellip;</strong></em>
+					</div>
+					<p>Please help, some images suddenly failed to load in my account, here is the screenshot:  <a href="https://cl.ly/0P1x2U0R3n45" target="_blank">https://cl.ly/0P1x2U0R3n45</a>.
+</p>
+				</blockquote>
+			</li>
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>4 hours ago from: <strong>Radek</strong> to: <strong>John Doe</strong><br>
+						Subject: <strong>RE: Please help&hellip;</strong></em>
+					</div>
+					<div>Hi John,<br><br>
+
+Sorry to hear that you have such troubles. Thank you very much for sending the screenshot. <br><br>
+
+I can see that you are running Chrome on macOS and that pretty much all the images are not visible, while the rest of the content loaded well, including stylesheets. <br><br>
+
+Let’s try to locate what caused this. Could you please try to perform following steps and see if it helps?<br><ol>
+	
+<li>Opening your Basecamp in Incognito window (<a href="https://support.google.com/chrome/answer/95464" target="_blank">here is how</a>). If it helped, it might be some extension causing this issue.</li>
+<li>Turn of all extensions (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>) and then try to refresh Basecamp. If this helped, try to turn them on 1 by 1 to until the problem returns, so you know which extension caused the troubles. I recommend to delete it afterwards.</li>
+<li>Try to clearing cache and cookies/browsing data (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>).</li></ol><br>
+
+If neither of these steps helped, could you try to open Basecamp in some other browser (e.g. Safari) and see, if the issue preserves?<br><br>
+
+In any case let please let me know how it worked.<br><br>
+
+Best regards,<br>
+
+Radek
+					</div>
+				</blockquote>
+			</li>
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>3 hours ago from: <strong>John Doe</strong> to: <strong>Radek</strong><br>
+						Subject: <strong>RE: Please help&hellip;</strong></em>
+					</div>
+					<p>Hi Radek,<br><br>
+
+issue resolved, thanks for your help!<br><br>
+
+John
+					</p>
+				</blockquote>
+			</li>
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>2 hours ago from: <strong>Radek</strong> to: <strong>John Doe</strong><br>
+						Subject: <strong>RE: Please help&hellip;</strong></em>
+					</div>
+					<p>Hi John,<br><br>
+
+very glad to hear that it helped. May I ask you if you could share with us which step exactly helped you?<br><br> 
+
+We are always trying to prevent frequent issues and in order to do that we always try to register the causes of each one.<br><br>
+
+Thank you in advance!<br><br>
+
+Best regards,<br>
+
+Radek
+					</p>
+				</blockquote>
+			</li>
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>1 hour ago from: <strong>John Doe</strong> to: <strong>Radek</strong><br>
+						Subject: <strong>RE: Please help&hellip;</strong></em>
+					</div>
+					<p>Step 2 helped, it turned out to be “Norton Internet Security Extension” causing me the troubles.<br><br>
+
+John
+					</p>
+				</blockquote>
+			</li>
+			<li>
+				<blockquote>
+					<div class="user">
+						<em>now from: <strong>Radek</strong> to: <strong>John Doe</strong><br>
+						Subject: <strong>RE: Please help&hellip;</strong></em>
+					</div>
+					<p>Hi John,<br><br>
+
+thank you very much, it’s in-valuable for us to know that. <br><br>
+
+I hope you will no longer have any issues. Nevertheless, don’t hesitate to contact us if we can help with something else.<br><br>
+
+Have a great day,<br>
+
+Radek
+					</p>
+				</blockquote>
+			</li>
+		</ol>
+		<h3>Internal follow up</h3>
+		<p>Let’s say this was Xth issue in the last 4 weeks caused by the same extension. Then I would suggest to try to proactively communicate it in troubleshooting guide. E.g. like on this <a href="https://basecamp.com/help/2/guides/troubleshooting/browser-troubles" target="_blank">page</a> for Basecamp 2.</p>
+	</section>
+	<hr>
+	<footer>
+		Do you want to get back to <a href="xss.html">XSS Report</a> or <a href="index.html">Intro</a>?
+	</footer>
+	<hr>
+</body>
+</html>
