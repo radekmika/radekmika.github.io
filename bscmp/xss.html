@@ -37,7 +37,7 @@
 
 						We believe it may be a valid security issue and will be investigating it further. <br><br>
 
-						When attempting to reproduce the issue, it appears that “the attacker could aim only on account he is member of and could target administrators or account owners, but is not able to target just any account“. Does that correspond with your findings? Please let us know. Also if you have any additional information that you can provide will help us further investigate this report.<br><br>
+						When attempting to reproduce the issue, it appears that "the attacker could aim only on the account he is a member of and could target administrators or account owners", but is not able to target just any account. Does that correspond with your findings? Please let us know. Also if you have any additional information that you can provide will help us further investigate this report.<br><br>
 
 						It could take some time to find and update the root cause of the issue, so we thank you for your patience. Meanwhile I will be your contact point and will keep you in the loop with the updates and new findings.<br><br>
 
@@ -55,19 +55,21 @@
 	<section>
 		<h2>My thoughts</h2>
 		<p>
-			XSS is one of the best known attacks and Rails provides pretty good security against it by default. So, I would proceed with healthy skepticism. However I would still be thorough with investigation of the report, because the root cause may be anywhere in the complex stack (JS, Ruby, Rails, DB) and nevertheless the chances are not highest, if proven correct it could be huge security risk.<br><br>
-
-			As a first step I would try to replicate the issue that has been reported. If I would be missing information needed to be able to successfully reproduce it, I would follow up with any additional questions. E.g. how the specific input looks like, which part of the app is vulnerable & so on.<br><br>
-
-			I would be trying to find out whether this vulnerability allows you do things like: executing JS to steal cookies (and session identifiers), redirecting to phishing site (and steal credentials or harm the name of the company), or download malicious code by executing unauthorized scripts.<br><br>
-
-			If the answer is yes at least once, I would mark this report with high priority and pass it to developers with all the important information I have obtained and the results of the steps I took. Also it’s possible that I would be able to identify the cause and suggest (or do) the fix, then I would still be in touch with developers to make sure it’s a complex patch.<br><br>
-
-			In my reply I will also explain how the whole process will look like from now on. I will make sure to ask them not to disclose the issue until it’s fixed and that if the issue affects other companies (e.g. because of Ruby / Rails) we will wait until they are protected as well.<br><br>
-
-			Then I will be informing the person who reported the issue with any new findings / progress.<br><br>  
-
-			In case we have decided the report is invalid or valid with low priority (based on the impact) I would make sure to clearly articulate all our reasons and ask if there are any objections (like additional information that would change the impact of the issue).
+			XSS is one of the best known attacks and Rails provides pretty good security against it by default. So, I would proceed with healthy skepticism. However I would still be thorough with investigation of the report, because the root cause may be anywhere in the complex stack (JS, Ruby, Rails, DB). Nevertheless the chances are not highest, if proven correct it could be huge security risk.
+		</p><p>
+			As a first step I would try to replicate the issue that has been reported. If I would be missing information needed to reproducing it, I would follow up with any additional questions. E.g. how the specific input looks like, which part of the app is vulnerable &amp; so on.
+		</p><p>
+			I would be trying to find out whether this vulnerability allows you do things like: executing JS to steal cookies (and session identifiers), redirecting to phishing site (and steal credentials or harm the name of the company), or download malicious code by executing unauthorized scripts.
+		</p><p>
+			If the answer is yes at least once, I would mark this report with high priority and pass it to developers with all the important information. Also it’s possible that I would be able to identify the cause and suggest (or do) the fix. I would still be in touch with developers to make sure it’s a complex patch.
+		</p><p>
+			In my reply I will also explain how the whole process will look like from now on. I will make sure to ask them not to disclose the issue until it’s fixed and that if the issue affects other companies (e.g. because of Ruby / Rails) we will wait until they are protected as well.
+		</p><p>
+			Then I will be informing the person who reported the issue with any new findings and progress along the way.
+		</p><p>
+			My communication would be formulated as I know that I speak with a someone who understands the topic. He/she is a security researcher, right. Being in the same position I would be pissed of as well when asked stupid simple questions in return without recognition of my work.
+		</p><p>
+			In case we have decided the report is invalid or valid with low priority (based on the impact) I would make sure to clearly articulate all of our reasons and ask if there are any objections (like additional information that could change the impact of the issue).
 		</p>
 	</section>
 	<hr>

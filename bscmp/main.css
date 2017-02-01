@@ -97,7 +97,7 @@ blockquote{
   -webkit-box-shadow: 2px 2px 15px #ccc;
   box-shadow: 2px 2px 15px #ccc;
 }
-ol.chat li {
+ol.chat li:only-child {
   list-style:none;
 }
 
@@ -138,11 +138,9 @@ blockquote em {
 }
 
 #portrait {
-  float:left;
-  clear:right;
   height:240px;
-  margin-right: 18px;
   margin-top: 18px;
+  border-radius:50%;
 }
 
 acronym, abbr {

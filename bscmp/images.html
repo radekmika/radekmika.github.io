@@ -23,50 +23,53 @@
 	<section>
 		<h2>My thoughts</h2>
 		<p>
-			  I guess that first I would be trying to find out whether it’s broad issue or individual one. This is how I would be trying to analyze the issue and which root cause I would be suspecting in each case:   
+			At first I would be trying to find out whether it’s a broad issue or an individual one. <br>
+			This is how I would be trying to analyze the issue and which root cause I would be suspecting in each case:   
 		</p>
 		<ol>
 			<li>
-				<p>In case I would notice that <strong>several clients are experiencing similar issue</strong> lately, then:</p>
+				<p><strong>Several clients are experiencing the similar issue</strong> lately, then:</p>
 				<ul>
-					<li>I would be trying to nail down the similar symptoms that should lead me to the point where it begun.</li>
-					<li>Also trying to replicate it in my own account and estimate how many customers might be affected.</li>
+					<li>I would be looking at the similarities of symptoms in all the reports.</li>
+					<li>Also trying to replicate it in my own account and then estimate how many customers might be affected.</li>
 					<li>Highly likely I assume that these things might have happened:
 						<ul>
-							<li>Something wen’t wrong in the app, e.g. after recent update. I would look at the change-log, see what could cause it. If I would be sure I found the reason, I would try to revert this update first (in case I truly believe there is nothing else that the revert could break) and in any case contact the author.</li>
-							<li>Or it can be also issue specific to some internet provider, DNS or CDN (in all or just some locations).</li>
+							<li>Something wen’t wrong in the app, e.g. after recent update. I would look at the change-log, see what could cause it. If I would be sure I found the reason, I would try to revert this update at first (in case I truly believe there is nothing else that the revert could break) and contact the author in any case .</li>
+							<li>Or it could be also issue specific to some internet provider, DNS or CDN (and in all or in just some locations).</li>
 						</ul>
 					</li>
 				</ul>
 			</li>
 			<li>
-				<p><strong>If it’s individual issue</strong>, I would be looking at WHERE this issue occurred and HOW exactly it behaved. I would be drilling down to find the root cause. Brief example of what I would be looking at:				</p>
+				<p><strong>If it’s an individual issue:</strong></p>
+				<p>
+					I would be looking at WHERE this issue occurred and HOW exactly it behaved:
+				</p>
 				<ol>
 					<li>
 						<strong>WHERE it happened:</strong>
 						<ul>
-							<li>  In just 1 browser on 1 PC.   I would recommend: 1. clearing cache and cookies / browsing history. 2. trying to load Basecamp in private browsing mode 3. turning off all extensions and 4. making sure that both JS (there would be notification in basecamp, I know, but still) and Image loading is turned on.</li>
-							<li>  In multiple browsers on 1 PC or On multiple devices.   I would try to ping CDN url, try to check Internet connection / DNS settings. Dig in Firewall settings, if there is any.</li>
+							<li>  <em>In just 1 browser on 1 PC.</em> I would recommend: <br> 1. Clearing cache and cookies / browsing history. <br>2. Trying to load Basecamp in the private browsing mode. <br>3. Turning off all extensions and <br> 4. Making sure that both JS (there would be notification in basecamp, I know, but still) and Image loading is turned on.</li>
+							<li>  <em>In multiple browsers on 1 PC or on multiple devices.</em> <br>I would try to ping CDN url, try to check Internet connection / DNS, Firewall or Proxy settings.</li>
 						</ul>
 					</li>
 					<li>
 						<strong>WHAT exactly was not loading:</strong>
 						<ul>
-							<li>  All images.   Chances that it will be resolved by the tips above are pretty high.</li>
-							<li>  All images and CSS/JS files as well.   I would check availability of the AKAMAI CDN from this location. I would check DNS settings and internet connection. And Firewall as well.</li>
-							<li>  Specific images.   E.g. some thumbnails, then I would search for in-app bug, for example when generating thumbnail from an image. I would try to reproduce it by trying to generate thumbnail for the same file.
+							<li>  <em>All images.</em> Chances that it will be resolved by the tips above are pretty high.</li>
+							<li>  <em>All images, plus CSS/JS files as well.</em>   I would check availability of the CDN from this location. I would check DNS settings, internet connection and Proxy or Firewall as well.</li>
+							<li>  <em>Specific images. E.g. thumbnails of some pictures only.</em> Then I would search for a bug in Basecamp, for example in the process of generating the thumbnail from an image. I would try to reproduce it by trying to generate thumbnail for the same file. And search in logs.
 							</li>
 						</ul>
 					</li>
+					
 				</ol>
 			</li>
 		</ol>
 		<p>
-			  
-			There is a chance it could be something else then what I suspect. But still, it’s more an example of discovery process. More I try and more information I have should help me to know where to be looking at.
-			If it’s not going to lead me to the root cause I suspected, then still it’s going to help me find it as I it should lead me in the direction where I should be looking for. <br>
-			Here is also a draft of communication how I would proceed with a specific request.
-			  
+			There is a chance it could be something else than what I suspected above. More I try and more information I have should help me to discover where to be looking at.
+		</p><p>	 
+			Down bellow, there is also a draft of communication how I would proceed with a specific request.
 		</p>
 	</section>
 	<hr>
@@ -89,25 +92,29 @@
 						<em>4 hours ago from: <strong>Radek</strong> to: <strong>John Doe</strong><br>
 						Subject: <strong>RE: Please help&hellip;</strong></em>
 					</div>
-					<div>Hi John,<br><br>
+					<div>
+						<p>Hi John,<br><br>
 
 Sorry to hear that you have such troubles. Thank you very much for sending the screenshot. <br><br>
 
 I can see that you are running Chrome on macOS and that pretty much all the images are not visible, while the rest of the content loaded well, including stylesheets. <br><br>
 
-Let’s try to locate what caused this. Could you please try to perform following steps and see if it helps?<br><ol>
-	
-<li>Opening your Basecamp in Incognito window (<a href="https://support.google.com/chrome/answer/95464" target="_blank">here is how</a>). If it helped, it might be some extension causing this issue.</li>
-<li>Turn of all extensions (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>) and then try to refresh Basecamp. If this helped, try to turn them on 1 by 1 to until the problem returns, so you know which extension caused the troubles. I recommend to delete it afterwards.</li>
-<li>Try to clearing cache and cookies/browsing data (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>).</li></ol><br>
+Let’s try to locate what caused this. Could you please try to perform following steps and see if it helps?
+						</p>
+						<ol>
+							<li>Opening your Basecamp in Incognito window (<a href="https://support.google.com/chrome/answer/95464" target="_blank">here is how</a>). If it helped, it might be some extension causing this issue.</li>
+							<li>Turn of all extensions (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>) and then try to refresh Basecamp. If this helped, try to turn them on one by one until the problem returns. Then you should know which extension caused the troubles. I recommend to delete it afterwards.</li>
+							<li>Try to clear cache and cookies/browsing data (<a href="https://support.google.com/chrome/answer/2664769" target="_blank">here is how</a>).</li>
+						</ol>
+						<p>
+							If neither of these steps helped, could you try to open Basecamp in some other browser (e.g. Safari) and see if the issue preserves?<br><br>
 
-If neither of these steps helped, could you try to open Basecamp in some other browser (e.g. Safari) and see, if the issue preserves?<br><br>
+							In any case let please let me know how it worked.<br><br>
 
-In any case let please let me know how it worked.<br><br>
+							Best regards,<br>
 
-Best regards,<br>
-
-Radek
+							Radek
+						</p>
 					</div>
 				</blockquote>
 			</li>
@@ -133,7 +140,7 @@ John
 					</div>
 					<p>Hi John,<br><br>
 
-very glad to hear that it helped. May I ask you if you could share with us which step exactly helped you?<br><br> 
+very glad to hear that it helped. May I ask you if you could share with us which step helped exactly?<br><br> 
 
 We are always trying to prevent frequent issues and in order to do that we always try to register the causes of each one.<br><br>
 
@@ -151,7 +158,7 @@ Radek
 						<em>1 hour ago from: <strong>John Doe</strong> to: <strong>Radek</strong><br>
 						Subject: <strong>RE: Please help&hellip;</strong></em>
 					</div>
-					<p>Step 2 helped, it turned out to be “Norton Internet Security Extension” causing me the troubles.<br><br>
+					<p>Step 2 helped, it turned out to be "Norton Internet Security" extension causing me the troubles.<br><br>
 
 John
 					</p>
@@ -165,9 +172,7 @@ John
 					</div>
 					<p>Hi John,<br><br>
 
-thank you very much, it’s in-valuable for us to know that. <br><br>
-
-I hope you will no longer have any issues. Nevertheless, don’t hesitate to contact us if we can help with something else.<br><br>
+thank you very much. I hope you will no longer have any issues. Nevertheless, don’t hesitate to contact us if we can help with something else.<br><br>
 
 Have a great day,<br>
 
