@@ -19,6 +19,8 @@ body {
 	font-family: "Varela Round", sans-serif;
 	font-size: 14px;
 	line-height: 24px;
+	font-weight: normal;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 @media screen and (max-device-width: 480px) {
