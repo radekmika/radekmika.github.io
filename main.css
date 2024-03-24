@@ -14,11 +14,9 @@ body {
 	-webkit-font-smoothing: subpixel-antialiased;
 }
 
-@media screen and (max-device-width: 540px) {
+@media screen and (max-device-width: 790px) {
 	body {
-		-webkit-text-size-adjust: none;
-		width: 540px;
-		font-size: 18px;
+		width: 100%;
 	}
 }
 
