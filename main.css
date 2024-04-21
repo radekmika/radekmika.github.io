@@ -17,6 +17,7 @@ body {
 @media screen and (max-device-width: 790px) {
 	body {
 		width: 100%;
+		margin: 80px 24px;
 	}
 }
 
